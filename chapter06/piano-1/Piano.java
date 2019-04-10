@@ -11,7 +11,13 @@ public class Piano extends World
     /**
      * Instance variables (can be used anywhere below)
      */
+    //Primitive data type (int)
     int frames;
+    
+    //Object data type...square brackets [] indicate an array (a list)
+    //Data type:String, we want an array, and the name is "studentNames"
+    String[] studentNames = {"Sarah", "Chelsea", "Jack", "Maxwell", "Gavin", "Minah", "Brandon",
+          "Jeewoo", "Peter", "Justy"};
 
     public Piano() 
     {
@@ -19,6 +25,7 @@ public class Piano extends World
 
         //Start tracking frames
         frames = 0;
+        
     }
 
     /** 
