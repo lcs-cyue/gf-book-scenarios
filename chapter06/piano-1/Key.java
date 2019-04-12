@@ -8,10 +8,12 @@ public class Key extends Actor
      */
 
     //tracks whether is "piano key down" image has already been set or not
+    // (isDown is a primitive data type - shows in red, type is lowercase)
     private boolean isDown;
     
     
     //Track what key is being played AND what sound file to play
+    //key and sound areobject data types - shows in black, type i Capitalized)
     private String key;
     private String sound;
     
