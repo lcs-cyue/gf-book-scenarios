@@ -13,11 +13,11 @@ public class Piano extends World
      */
     //Primitive data type (int)
     int frames;
-    
+
     //Object data type...square brackets [] indicate an array (a list)
     //Data type:String, we want an array, and the name is "studentNames"
     String[] studentNames = {"Sarah", "Chelsea", "Jack", "Maxwell", "Gavin", "Minah", "Brandon",
-          "Jeewoo", "Peter", "Justy"};
+            "Jeewoo", "Peter", "Justy"};
 
     public Piano() 
     {
@@ -25,18 +25,30 @@ public class Piano extends World
 
         //Start tracking frames
         frames = 0;
-        
+
     }
 
     /** 
      * Act - called repeatedly to create animation
      */
     public void act()
-{
-    //Keep track of the frames
-        frames += 1;
+    {
+        //Every second, say hello to the next person in the list
         
-    //Show current frame
-    showText("" + frames, 100, 100);
-}
+        // && is a Boolean AND
+        //statement in the conditional run only when both conditions are true
+        if ((frames % 60 == 0) && (frames / 60 < 10))
+        {
+
+            //showText("Hello " + studentNames[ frames / 60 ], 400, 170);
+
+        }
+
+        //Keep track of the frames
+        frames += 1;
+
+        //Show current frame
+        showText("" + frames, 100, 100);
+
+    }
 }   
