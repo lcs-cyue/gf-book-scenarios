@@ -15,7 +15,7 @@ public class Key extends Actor
     //Track what key is being played AND what sound file to play
     //key and sound areobject data types - shows in black, type i Capitalized)
     private String key;
-    private String sound;
+    private String sound; 
     
     /**
      * Create a new key.
@@ -26,6 +26,9 @@ public class Key extends Actor
         // Key begins in the "up" position
         isDown = false;
         
+        //initialize the key ad sound instance variables
+        key = keyName;
+        sound = soundFile;
         
     }
 
@@ -37,14 +40,14 @@ public class Key extends Actor
         //When the key image is NOT already showing "down"
         //AND
         //the "g" key on the keyboard has been pressed
-        if (! isDown && Greenfoot.isKeyDown("g"))
+        if (! isDown && Greenfoot.isKeyDown(key))
         {
             setImage("white-key-down.png");
             isDown = true;
             play();
         }
 
-        if ( isDown == true && Greenfoot.isKeyDown("g") == false)
+        if ( isDown == true && Greenfoot.isKeyDown(key) == false)
         {
             setImage("white-key.png");
             isDown= false;
@@ -56,9 +59,7 @@ public class Key extends Actor
      */
     public void play()
     {
-        Greenfoot.playSound("3c.wav");
-        Greenfoot.playSound("3e.wav");
-        Greenfoot.playSound("3g.wav");
+        Greenfoot.playSound(sound + ".wav");
     }
 
 }
