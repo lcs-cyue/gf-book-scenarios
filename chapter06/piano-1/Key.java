@@ -2,8 +2,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, and Greenfoot)
 
 public class Key extends Actor
 {
-    
-    /*
+
+    /**
      * Instance variable
      */
 
@@ -31,13 +31,26 @@ public class Key extends Actor
         {
             setImage("white-key-down.png");
             isDown = true;
+            play();
         }
-        
+
         if ( isDown == true && Greenfoot.isKeyDown("g") == false)
         {
             setImage("white-key.png");
             isDown= false;
         }
     }
-}
 
+    /**
+     * Play the note of this key
+     */
+    public void play()
+    {
+        
+        Greenfoot.playSound("3b.wav");
+        Greenfoot.playSound("3g.wav");
+        
+        Greenfoot.playSound("3e.wav");
+    }
+
+}

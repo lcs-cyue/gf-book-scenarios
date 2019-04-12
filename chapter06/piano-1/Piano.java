@@ -40,7 +40,7 @@ public class Piano extends World
         if ((frames % 60 == 0) && (frames / 60 < 10))
         {
 
-            //showText("Hello " + studentNames[ frames / 60 ], 400, 170);
+            showText("Hello " + studentNames[ frames / 60 ], 400, 170);
 
         }
 
