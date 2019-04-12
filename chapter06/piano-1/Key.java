@@ -9,14 +9,22 @@ public class Key extends Actor
 
     //tracks whether is "piano key down" image has already been set or not
     private boolean isDown;
+    
+    
+    //Track what key is being played AND what sound file to play
+    private String key;
+    private String sound;
+    
     /**
      * Create a new key.
      * Constructor - it runs once when the Key object is created
      */
-    public Key()
+    public Key(String keyName, String soundFile)
     {
         // Key begins in the "up" position
         isDown = false;
+        
+        
     }
 
     /**
@@ -46,11 +54,9 @@ public class Key extends Actor
      */
     public void play()
     {
-        
-        Greenfoot.playSound("3b.wav");
-        Greenfoot.playSound("3g.wav");
-        
+        Greenfoot.playSound("3c.wav");
         Greenfoot.playSound("3e.wav");
+        Greenfoot.playSound("3g.wav");
     }
 
 }
