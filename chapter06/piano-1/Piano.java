@@ -18,6 +18,10 @@ public class Piano extends World
     //Data type:String, we want an array, and the name is "studentNames"
     String[] studentNames = {"Sarah", "Chelsea", "Jack", "Maxwell", "Gavin", "Minah", "Brandon",
             "Jeewoo", "Peter", "Justy"};
+    
+    // Track the white keys and notes
+    String[] whitekeys = {"a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "\\"};
+    String[] whiteNotes = {"3c", "3d","3e", "3f", "3g", "3a", "3b", "4c", "4d", "4e", "4f", "4g"};
 
     public Piano() 
     {
@@ -33,7 +37,8 @@ public class Piano extends World
      */
     public void act()
     {
-        //Every second, say hello to the next person in the list
+        //This block of code runs once a second until the end of the 
+        //-whiteKey array
         
         // && is a Boolean AND
         //statement in the conditional run only when both conditions are true
@@ -51,4 +56,6 @@ public class Piano extends World
         showText("" + frames, 100, 100);
 
     }
+    
+    
 }   
