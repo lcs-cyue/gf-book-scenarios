@@ -42,7 +42,9 @@ public class Piano extends World
         
         // && is a Boolean AND
         //statement in the conditional run only when both conditions are true
-        if ((frames % 60 == 0) && (frames / 60 < 10))
+        if ((frames % 60 == 0) && (frames / 60 < whitekeys.length))
+        //NOTE: whiteKey/length automatically returns the coreect number
+        //-of values in the array (so that we won't run past the end)
         {
 
             showText("Hello " + studentNames[ frames / 60 ], 400, 170);
