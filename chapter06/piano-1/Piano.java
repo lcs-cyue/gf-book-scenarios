@@ -20,7 +20,7 @@ public class Piano extends World
             "Jeewoo", "Peter", "Justy"};
     
     // Track the white keys and notes
-    String[] whitekeys = {"a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "\\"};
+    String[] whiteKeys = {"a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "\\"};
     String[] whiteNotes = {"3c", "3d","3e", "3f", "3g", "3a", "3b", "4c", "4d", "4e", "4f", "4g"};
 
     public Piano() 
@@ -42,12 +42,21 @@ public class Piano extends World
         
         // && is a Boolean AND
         //statement in the conditional run only when both conditions are true
-        if ((frames % 60 == 0) && (frames / 60 < whitekeys.length))
+        int position = frames / 60;
         //NOTE: whiteKey/length automatically returns the coreect number
         //-of values in the array (so that we won't run past the end)
+        if ((frames % 60 == 0) && (position < whiteKeys.length))
         {
-
-            showText("Hello " + studentNames[ frames / 60 ], 400, 170);
+            //Assemble the piano by creating each key one by one
+            Key anotherKey = new Key(whiteKeys[position], whiteNotes[position]);
+            //showText("Hello " + studentNames[ frames / 60 ], 400, 170);
+            
+            //This line actually adds the object to the Piano world
+            //        OBJECT    Horitontal Position   Vertical position
+            addObject(anotherKey, 54 + position * 63, 140);
+            
+            //Only show a message when we are in the bounds of the array
+            showText("Array indext is:" + frames / 60, 400, 250);
 
         }
 
