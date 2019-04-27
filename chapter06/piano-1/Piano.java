@@ -28,54 +28,39 @@ public class Piano extends World
     {
         super(800, 340, 1);
 
-        //Start tracking frames
-        frames = 0;
-
-    }
-
-    /** 
-     * Act - called repeatedly to create animation
-     */
-    public void act()
-    {
-        //This block of code runs once a second until the end of the 
-        //-whiteKey array
-
-        // && is a Boolean AND
-        //statement in the conditional run only when both conditions are true
         int position = frames / 60;
-        //NOTE: whiteKey/length automatically returns the coreect number
-        //-of values in the array (so that we won't run past the end)
-        if ((frames % 60 == 0) && (position < 24 ))//blackKeys.length))
+        //draw all the white notes on the screen
+        for (int index = 0; index < whiteKeys.length; index +=1)
         {
-            //Assemble the piano by creating each key one by one
-            Key anotherWhiteKey = new Key(whiteKeys[position], whiteNotes[position],true);
-            Key anotherBlackKey = new Key(blackKeys[position], blackNotes[position],false);
-            //showText("Hello " + studentNames[ frames / 60 ], 400, 170);
+            // Create a new Key object
+            Key newKey = new Key(whiteKeys[index], whiteNotes[index], true);
 
-            //This line actually adds the object to the Piano world
-            //        OBJECT    Horitontal Position   Vertical position
-            if (position < 12)
-            {
-                addObject(anotherWhiteKey, 54 + position * 63, 140);
-            }
-
-            if (blackKeys[position] != "" && (position > 12) && (position < 24))
-            {
-                addObject(anotherBlackKey, 85 + position * 63, 75);
-            }
-
-            //Only show a message when we are in the bounds of the array
-            showText("Array indext is:" + position, 400, 250);
-
+            // Add the Key object to the scenario
+            addObject(newKey, 54 + index * 63, 140);
         }
 
-        //Keep track of the frames
-        frames += 1;
+        for (int index = 0; index < blackKeys.length; index += 1)
 
-        //Show current frame
-        showText("" + frames, 100, 100);
+        {
+            if (blackKeys[index] != "" )
+            {
+                Key newKey = new Key(blackKeys[index], blackNotes[index], false);
+                addObject(newKey, 85 + 63 * index, 86);
+            }
+        }
+
+        //Only show a message when we are in the bounds of the array
+        //showText("Array index is:" + position, 400, 250);
 
     }
 
-}   
+    //Keep track of the frames
+    //frames += 1;
+
+    //Show current frame
+    // showText("" + frames, 100, 100);
+
+}
+
+
+
