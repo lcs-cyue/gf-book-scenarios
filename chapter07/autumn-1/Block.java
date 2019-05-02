@@ -1,4 +1,6 @@
 import greenfoot.*;
+// Get access to the List type from the Java API
+import java.util.List;
 
 /**
  * A block that bounces back and forth across the screen.
@@ -9,7 +11,7 @@ import greenfoot.*;
 public class Block extends Actor
 {
     private int delta = 2;
-    
+
     /**
      * Move across the screen, bounce off edges. Turn leaves, if we touch any.
      */
@@ -19,7 +21,7 @@ public class Block extends Actor
         checkEdge();
         checkMouseClick();
     }
-    
+
     /**
      * Move sideways, either left or right.
      */
@@ -27,7 +29,7 @@ public class Block extends Actor
     {
         setLocation(getX()+delta, getY());
     }
-    
+
     /**
      * Check whether we are at the edge of the screen. If we are, turn around.
      */
@@ -38,7 +40,7 @@ public class Block extends Actor
             delta = -delta;  // reverse direction
         }
     }
-    
+
     /**
      * Check whether the mouse button was clicked. If it was, change all leaves.
      */
@@ -50,12 +52,22 @@ public class Block extends Actor
         // object is clicked
         if (Greenfoot.mouseClicked(this)) 
         {
-            // Get an object reference to the world
+            // 1.Get an object reference to the world
             World myWorld = getWorld();
-            
-            //Show some text on the screen
-            myWorld.showText("clicked mouse", 200, 200);
+
+            // 2.Get a list of object references to all the Leaf objects in the world
+            //   TYPE   NAME                         CLASS
+            List<Leaf> leaves = myWorld.getObjects(Leaf.class);
+
+            // 3. Automatically iterate (loop) through the list the correct number of times
+            // With each iteration, get an object reference to the next Leaf in the list
+            // "For each leaf in the leaves list..."
+            for (Leaf leaf : leaves)
+            {
+                // Change the image on this particular leaf
+                leaf.changeImage();
+            }
         }
     }
-    
+
 }
